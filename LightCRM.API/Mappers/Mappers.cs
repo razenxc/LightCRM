@@ -32,5 +32,16 @@ namespace LightCRM.API.Mappers
         {
             return new ProductResponse(e.Id, e.Name, e.Price, e.Stock);
         }
+
+
+        // 
+        //
+
+        //
+        // OrderItemRequest -> OrderItemEntity
+        public static OrderItem FromRequest(this OrderItemRequest e)
+        {
+            return new OrderItem(Guid.Empty, Guid.Empty, e.ProductId, e.Quantity);
+        }
     }
 }

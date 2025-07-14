@@ -26,7 +26,7 @@ namespace LightCRM.API.Contracts
 
     // govno snizu
     public record OrderRequest(
-        ICollection<OrderItemRequest> Items
+        Guid ClientId, ICollection<OrderItemRequest> Items
         );
 
     public record OrderItemRequest(

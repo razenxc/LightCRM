@@ -20,7 +20,7 @@ namespace LightCRM.Infrastructure.Services
 
                 foreach (OrderItem item in orderItems)
                 {
-                    model.AddItem(item);
+                    model.AddItem(new OrderItem(item.Id, model.Id, item.ProductId, item.Quantity));
                 }
 
                 await _ctx.Orders.AddAsync(model);

@@ -1,0 +1,29 @@
+﻿namespace LightCRM.Domain.Models
+{
+    public class Client
+    {
+        public Guid Id { get; private set; }
+        public string Name { get; private set; }
+        public string Email { get; private set; }
+        public string Phone {  get; private set; }
+        public ICollection<Order> Orders { get; private set; }
+
+        public Client(Guid id, string name, string email, string phone)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            Phone = phone;
+        }
+
+        public void AddOrder(Order order)
+        {
+            Orders.Add(order);
+        }
+
+        public void RemoveOrder(Order order)
+        {
+            Orders.Remove(order);
+        }
+    }
+}

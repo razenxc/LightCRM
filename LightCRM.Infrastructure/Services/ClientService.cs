@@ -67,17 +67,17 @@ namespace LightCRM.Infrastructure.Services
         }
 
         // Update
-        public async Task<(Client? client, string error)> UpdateAsync(Client client)
+        public async Task<(Client? client, string error)> UpdateAsync(Guid id, string name, string email, string phone)
         {
             try
             {
-                Client? entity = await _ctx.Clients.FirstOrDefaultAsync(x => x.Email == client.Email);
+                Client? entity = await _ctx.Clients.FirstOrDefaultAsync(x => x.Id == id);
                 if (entity == null)
                 {
                     return (null, "Client does not exist.");
                 }
 
-                entity.Update(client.Name, client.Email, client.Phone);
+                entity.Update(name, email, phone);
                 await _ctx.SaveChangesAsync();
 
                 return (entity, string.Empty);

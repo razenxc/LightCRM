@@ -8,6 +8,6 @@ namespace LightCRM.Domain.Interfaces
         Task<(Client? client, string error)> DeleteAsync(Guid id);
         Task<(List<Client>? client, string error)> ReadAsync();
         Task<(Client? client, string error)> ReadAsync(Guid id);
-        Task<(Client? client, string error)> UpdateAsync(Client client);
+        Task<(Client? client, string error)> UpdateAsync(Guid id, string name, string email, string phone);
     }
 }

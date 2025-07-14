@@ -13,6 +13,7 @@
             Id = id;
             ClientId = clientId;
             CreatedAt = createdAt;
+            Items = new List<OrderItem>();
         }
 
         public void AddItem(OrderItem item)

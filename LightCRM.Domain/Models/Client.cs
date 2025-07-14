@@ -14,6 +14,7 @@
             Name = name;
             Email = email;
             Phone = phone;
+            Orders = new List<Order>();
         }
 
         public void AddOrder(Order order)

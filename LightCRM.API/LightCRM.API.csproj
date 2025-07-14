@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LightCRM.Domain\LightCRM.Domain.csproj" />
+    <ProjectReference Include="..\LightCRM.Infrastructure\LightCRM.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

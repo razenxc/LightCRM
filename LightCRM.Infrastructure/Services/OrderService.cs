@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LightCRM.Domain.Interfaces;
 using LightCRM.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LightCRM.Infrastructure.Services
 {
-    public class OrderService
+    public class OrderService : IOrderService
     {
         private readonly ApplicationDbContext _ctx;
-        public OrderService(ApplicationDbContext ctx) 
+        public OrderService(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }

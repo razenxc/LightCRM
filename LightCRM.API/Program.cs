@@ -1,5 +1,8 @@
 
+using LightCRM.Domain.Interface;
+using LightCRM.Domain.Interfaces;
 using LightCRM.Infrastructure;
+using LightCRM.Infrastructure.Services;
 
 namespace LightCRM.API
 {
@@ -17,6 +20,10 @@ namespace LightCRM.API
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<ApplicationDbContext>();
+
+            builder.Services.AddScoped<IClientService, ClientService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             var app = builder.Build();
 

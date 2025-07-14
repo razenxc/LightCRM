@@ -25,5 +25,12 @@
         {
             Orders.Remove(order);
         }
+
+        public void Update(string name, string email, string phone)
+        {
+            Name = name;
+            Email = email;
+            Phone = phone;
+        }
     }
 }

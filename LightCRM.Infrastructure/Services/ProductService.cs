@@ -67,17 +67,17 @@ namespace LightCRM.Infrastructure.Services
         }
 
         // Update
-        public async Task<(Product? product, string error)> UpdateAsync(Product product)
+        public async Task<(Product? product, string error)> UpdateAsync(Guid id, string name, decimal price, int stock)
         {
             try
             {
-                Product? entity = await _ctx.Products.FirstOrDefaultAsync(x => x.Id == product.Id);
+                Product? entity = await _ctx.Products.FirstOrDefaultAsync(x => x.Id == id);
                 if (entity == null)
                 {
                     return (null, "Product does not exist.");
                 }
 
-                entity.Update(product.Name, product.Price, product.Stock);
+                entity.Update(name, price, stock);
                 await _ctx.SaveChangesAsync();
 
                 return (entity, string.Empty);

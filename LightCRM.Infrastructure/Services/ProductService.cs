@@ -1,33 +1,33 @@
-﻿using LightCRM.Domain.Interfaces;
+﻿using LightCRM.Domain.Interface;
 using LightCRM.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LightCRM.Infrastructure.Services
 {
-    public class ClientService : IClientService
+    public class ProductService : IProductService
     {
         private readonly ApplicationDbContext _ctx;
-        public ClientService(ApplicationDbContext ctx)
+        public ProductService(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
         // Create
-        public async Task<(Client? client, string error)> CreateAsync(string name, string email, string phone)
+        public async Task<(Product? product, string error)> CreateAsync(string name, decimal price, int stock)
         {
             try
             {
-                if (await _ctx.Clients.FirstOrDefaultAsync(x => x.Email == email) != null)
+                if (await _ctx.Products.FirstOrDefaultAsync(x => x.Name == name) != null)
                 {
-                    return (null, "Client already exists.");
+                    return (null, "Product with the same name already exists.");
                 }
 
-                Client client = new Client(Guid.NewGuid(), name, email, phone);
+                Product model = new Product(Guid.NewGuid(), name, price, stock);
 
-                await _ctx.Clients.AddAsync(client);
+                await _ctx.Products.AddAsync(model);
                 await _ctx.SaveChangesAsync();
 
-                return (client, string.Empty);
+                return (model, string.Empty);
             }
             catch (Exception ex)
             {
@@ -36,14 +36,14 @@ namespace LightCRM.Infrastructure.Services
         }
 
         // Read
-        public async Task<(Client? client, string error)> ReadAsync(Guid id)
+        public async Task<(Product? product, string error)> ReadAsync(Guid id)
         {
             try
             {
-                Client? entity = await _ctx.Clients.FirstOrDefaultAsync(x => x.Id == id);
+                Product? entity = await _ctx.Products.FirstOrDefaultAsync(x => x.Id == id);
                 if (entity == null)
                 {
-                    return (null, "User does not exist.");
+                    return (null, "Product does not exist.");
                 }
 
                 return (entity, string.Empty);
@@ -54,11 +54,11 @@ namespace LightCRM.Infrastructure.Services
             }
         }
 
-        public async Task<(List<Client>? client, string error)> ReadAsync()
+        public async Task<(List<Product>? products, string error)> ReadAsync()
         {
             try
             {
-                return (await _ctx.Clients.ToListAsync(), string.Empty);
+                return (await _ctx.Products.ToListAsync(), string.Empty);
             }
             catch (Exception ex)
             {
@@ -67,17 +67,17 @@ namespace LightCRM.Infrastructure.Services
         }
 
         // Update
-        public async Task<(Client? client, string error)> UpdateAsync(Client client)
+        public async Task<(Product? product, string error)> UpdateAsync(Product product)
         {
             try
             {
-                Client? entity = await _ctx.Clients.FirstOrDefaultAsync(x => x.Email == client.Email);
+                Product? entity = await _ctx.Products.FirstOrDefaultAsync(x => x.Id == product.Id);
                 if (entity == null)
                 {
-                    return (null, "Client does not exist.");
+                    return (null, "Product does not exist.");
                 }
 
-                entity.Update(client.Name, client.Email, client.Phone);
+                entity.Update(product.Name, product.Price, product.Stock);
                 await _ctx.SaveChangesAsync();
 
                 return (entity, string.Empty);
@@ -89,17 +89,17 @@ namespace LightCRM.Infrastructure.Services
         }
 
         // Delete
-        public async Task<(Client? client, string error)> DeleteAsync(Guid id)
+        public async Task<(Product? product, string error)> DeleteAsync(Guid id)
         {
             try
             {
-                Client? entity = await _ctx.Clients.FirstOrDefaultAsync(x => x.Id == id);
+                Product? entity = await _ctx.Products.FirstOrDefaultAsync(x => x.Id == id);
                 if (entity == null)
                 {
-                    return (null, "Client does not exist.");
+                    return (null, "Product does not exist.");
                 }
 
-                _ctx.Clients.Remove(entity);
+                _ctx.Products.Remove(entity);
                 await _ctx.SaveChangesAsync();
 
                 return (entity, string.Empty);

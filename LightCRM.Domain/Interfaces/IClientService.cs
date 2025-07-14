@@ -1,6 +1,6 @@
 ﻿using LightCRM.Domain.Models;
 
-namespace LightCRM.Domain.Interface
+namespace LightCRM.Domain.Interfaces
 {
     public interface IClientService
     {

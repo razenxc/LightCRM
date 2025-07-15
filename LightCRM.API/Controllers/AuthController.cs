@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LightCRM.API.Controllers
 {
     [AllowAnonymous]
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {

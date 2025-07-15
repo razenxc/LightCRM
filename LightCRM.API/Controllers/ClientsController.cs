@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LightCRM.API.Controllers
 {
     [Authorize(Roles = "ADMIN")]
-    [Route("api/[controller]")]
+    [Route("api/clients")]
     [ApiController]
     public class ClientsController : ControllerBase
     {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LightCRM.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/products]")]
     [ApiController]
     [Authorize(Roles = "ADMIN")]
     public class ProductsController : ControllerBase

@@ -7,6 +7,8 @@ services:
       dockerfile: LightCRM.API/Dockerfile
     depends_on: 
         - lightcrmdb
+    environment:
+        - ConnectionStrings__DefaultConnection=Host=lightcrmdb;Database=lightcrm;Username=postgres;Password=postgres
 
   lightcrmdb:
      image: postgres

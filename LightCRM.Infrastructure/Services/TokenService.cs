@@ -18,6 +18,7 @@ namespace LightCRM.Infrastructure.Services
         public TokenService(ApplicationDbContext ctx, IConfiguration cfg)
         {
             _ctx = ctx;
+            _cfg = cfg;
         }
 
         public async Task<(string? token, string error)> GenerateRefreshTokenAsync(Guid userId)

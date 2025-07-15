@@ -36,4 +36,12 @@ namespace LightCRM.API.Contracts
     public record ProductRequest(
         string Name, decimal Price, int Stock
         );
+
+    public record UserRequest(
+        [EmailAddress] string Email, string Password
+        );
+
+    public record RefreshTokensRequest(
+        string oldRefreshToken
+        );
 }

@@ -1,6 +1,6 @@
 ﻿using LightCRM.API.Contracts;
 using LightCRM.API.Mappers;
-using LightCRM.Domain.Interface;
+using LightCRM.Domain.Interfaces;
 using LightCRM.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 

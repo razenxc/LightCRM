@@ -1,4 +1,4 @@
-﻿using LightCRM.Domain.Interface;
+﻿using LightCRM.Domain.Interfaces;
 using LightCRM.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 

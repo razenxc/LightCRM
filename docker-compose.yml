@@ -9,6 +9,7 @@ services:
         - lightcrmdb
     environment:
         - ConnectionStrings__DefaultConnection=Host=lightcrmdb;Database=lightcrm;Username=postgres;Password=postgres
+        - ASPNETCORE_ENVIRONMENT=Production
 
   lightcrmdb:
      image: postgres

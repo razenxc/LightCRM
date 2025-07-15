@@ -13,7 +13,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["LightCRM.API/LightCRM.API.csproj", "LightCRM.API/"]
-COPY ["LightCRM.Application/LightCRM.Application.csproj", "LightCRM.Application/"]
 COPY ["LightCRM.Domain/LightCRM.Domain.csproj", "LightCRM.Domain/"]
 COPY ["LightCRM.Infrastructure/LightCRM.Infrastructure.csproj", "LightCRM.Infrastructure/"]
 RUN dotnet restore "./LightCRM.API/LightCRM.API.csproj"

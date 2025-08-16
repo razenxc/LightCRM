@@ -1,14 +1,15 @@
 ﻿using LightCRM.API.Contracts;
 using LightCRM.API.Mappers;
+using LightCRM.Domain.Constants;
 using LightCRM.Domain.Interfaces;
 using LightCRM.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LightCRM.API.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize(Roles = UserRoles.SuperAdmin)]
     [Route("api/clients")]
     [ApiController]
     public class ClientsController : ControllerBase

@@ -1,4 +1,5 @@
-﻿using LightCRM.Domain.Interfaces;
+﻿using LightCRM.Domain.Constants;
+using LightCRM.Domain.Interfaces;
 using LightCRM.Domain.Models;
 using LightCRM.Domain.Models.Misc;
 using Microsoft.AspNetCore.Identity;
@@ -23,7 +24,7 @@ namespace LightCRM.Infrastructure.Services
                 return (null, "User is already exist!");
             }
 
-            User user = new User(Guid.NewGuid(), email, "USER");
+            User user = new User(Guid.NewGuid(), email, UserRoles.User);
 
             PasswordHasher<User> hasher = new PasswordHasher<User>();
 

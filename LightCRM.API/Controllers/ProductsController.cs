@@ -1,5 +1,6 @@
 ﻿using LightCRM.API.Contracts;
 using LightCRM.API.Mappers;
+using LightCRM.Domain.Constants;
 using LightCRM.Domain.Interfaces;
 using LightCRM.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -7,9 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LightCRM.API.Controllers
 {
-    [Route("api/products]")]
+    [Route("api/products")]
     [ApiController]
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize(Roles = UserRoles.SuperAdmin)]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;

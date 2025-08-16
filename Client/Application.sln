@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCRM", "LightCRM\LightCRM\LightCRM.csproj", "{6DA05F40-D3BB-48F7-8A8A-DB578877EA2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCRM.Android", "LightCRM\LightCRM.Android\LightCRM.Android.csproj", "{8FEF329D-6662-431E-ADC6-83422C5DD192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCRM.Desktop", "LightCRM\LightCRM.Desktop\LightCRM.Desktop.csproj", "{FA9B7B03-0832-4F13-8BEE-72EFB1E7876D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCRM.iOS", "LightCRM\LightCRM.iOS\LightCRM.iOS.csproj", "{D5AF13E9-8716-49E8-BED7-2054942BDBBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCRM.Browser", "LightCRM\LightCRM.Browser\LightCRM.Browser.csproj", "{F90DD7C3-F5D3-4D7D-ACCA-F946F5019CEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DA05F40-D3BB-48F7-8A8A-DB578877EA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA05F40-D3BB-48F7-8A8A-DB578877EA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA05F40-D3BB-48F7-8A8A-DB578877EA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA05F40-D3BB-48F7-8A8A-DB578877EA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FEF329D-6662-431E-ADC6-83422C5DD192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FEF329D-6662-431E-ADC6-83422C5DD192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FEF329D-6662-431E-ADC6-83422C5DD192}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8FEF329D-6662-431E-ADC6-83422C5DD192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FEF329D-6662-431E-ADC6-83422C5DD192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FEF329D-6662-431E-ADC6-83422C5DD192}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FA9B7B03-0832-4F13-8BEE-72EFB1E7876D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9B7B03-0832-4F13-8BEE-72EFB1E7876D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9B7B03-0832-4F13-8BEE-72EFB1E7876D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9B7B03-0832-4F13-8BEE-72EFB1E7876D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AF13E9-8716-49E8-BED7-2054942BDBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AF13E9-8716-49E8-BED7-2054942BDBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AF13E9-8716-49E8-BED7-2054942BDBBA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D5AF13E9-8716-49E8-BED7-2054942BDBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AF13E9-8716-49E8-BED7-2054942BDBBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AF13E9-8716-49E8-BED7-2054942BDBBA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F90DD7C3-F5D3-4D7D-ACCA-F946F5019CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90DD7C3-F5D3-4D7D-ACCA-F946F5019CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90DD7C3-F5D3-4D7D-ACCA-F946F5019CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90DD7C3-F5D3-4D7D-ACCA-F946F5019CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {035A22F4-6E7C-41EA-891A-80371FA653A9}
+	EndGlobalSection
+EndGlobal

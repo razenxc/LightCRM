@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="300" Height="200"
+        x:Class="LightCRM.AuthenticationView"
+        Title="AuthenticationView">
+	<Grid>
+		<TabControl>
+			<TabItem Header="Auth">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<TextBox Grid.Row="0" Watermark="Login"
+							 VerticalAlignment="Center"/>
+
+					<TextBox Grid.Row="1" Watermark="Password"
+							 VerticalAlignment="Center"/>
+					
+					<Button Grid.Row="2" Content="Login"
+							VerticalAlignment="Center" HorizontalAlignment="Center" Width="280"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>

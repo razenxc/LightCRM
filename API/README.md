@@ -16,8 +16,6 @@ Simple Customer Relationship Management API
 
 5. API will be available at http://localhost:1001/
 
----
-
 # 🌐Endpoints
 
 ---
@@ -316,24 +314,3 @@ Simple Customer Relationship Management API
 ```
 
 ---
-
-## 🔐`Secrets.json` example
-
-```json
-{
-    "ConnectionStrings:Default": "Host=localhost;Port=5432;Database=lightcrm;Username=postgres;Password=postgres;",
-
-    "Jwt": {
-        "SigningKey": "38abcc5679969df6550f92308102f5b4f8a866b3d4c5865955149303ff6eefd1",
-        "Issuer": "caf833b59860f9bed49a0c0561cf6c5cb10470432f8448ac1d9c9f8f54a1070b",
-        "Audience": "caf833b59860f9bed49a0c0561cf6c5cb10470432f8448ac1d9c9f8f54a1070b",
-        "RefreshTokenExpiresIn": "10080",
-        "AccessTokenExpiresIn": "15"
-    },
-
-    "Api": {
-        "AdminEmail": "admin@admin.com",
-        "AdminPassword": "admin"
-    }
-}
-```

@@ -10,8 +10,7 @@ namespace LightCRM.API.Controllers
 {
     [Route("api/products")]
     [ApiController]
-    [Authorize(Roles = UserRoles.Admin)]
-    [Authorize(Roles = UserRoles.SuperAdmin)]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.SuperAdmin}")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;

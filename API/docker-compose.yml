@@ -8,8 +8,18 @@ services:
     depends_on: 
         - lightcrmdb
     environment:
-        - ConnectionStrings__DefaultConnection=Host=localhost;Database=lightcrm;Username=postgres;Password=postgres
+        - ASPNETCORE_URLS=http://+:80;
+        - ConnectionStrings__Default=Host=lightcrmdb;Database=lightcrm;Username=postgres;Password=postgres
         - ASPNETCORE_ENVIRONMENT=Production
+        - Jwt__SigningKey=${JWT_SIGNINGKEY}
+        - Jwt__RefreshTokenExpiresIn=${JWT_REFRESHTOKENEXPIRESIN}
+        - Jwt__AccessTokenExpiresIn=${JWT_ACCESSTOKENEXPIRESIN}
+        - Jwt__Issuer=${JWT_ISSUER}
+        - Jwt__Audience=${JWT_AUDIENCE}
+        - Api__AdminPassword=${API_ADMINPASSWORD}
+        - Api__AdminEmail=${API_ADMINEMAIL}
+    ports:
+      - "1001:80"
 
   lightcrmdb:
      image: postgres

@@ -4,6 +4,20 @@ Simple Customer Relationship Management API
 
 ---
 
+# 🫙How to run using Docker
+
+1. Copy `.env.example`
+
+2. Rename it to `.env`
+
+3. Fill the file
+
+4. `docker compose up -d`
+
+5. API will be available at http://localhost:1001/
+
+---
+
 # 🌐Endpoints
 
 ---
@@ -323,13 +337,3 @@ Simple Customer Relationship Management API
     }
 }
 ```
-
----
-
-# 🫙~~How to run using Docker~~
-
-## * Can't be runned fully right now. Use Visual Studio.
-
-`docker-compose up -d`
-
----

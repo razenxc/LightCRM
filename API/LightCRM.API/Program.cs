@@ -4,6 +4,7 @@ using LightCRM.Domain.Interfaces;
 using LightCRM.Infrastructure;
 using LightCRM.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -74,6 +75,12 @@ namespace LightCRM.API
             });
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                ApplicationDbContext ctx = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                ctx.Database.Migrate();
+            } // Applying migrations
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

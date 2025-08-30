@@ -9,8 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LightCRM.API.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
-    [Authorize(Roles = UserRoles.SuperAdmin)]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.SuperAdmin}")]
     [Route("api/orders")]
     [ApiController]
     public class OrdersController : ControllerBase

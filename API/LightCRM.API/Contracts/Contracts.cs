@@ -23,8 +23,7 @@ namespace LightCRM.API.Contracts
     public record ClientRequest(
         string Name, [EmailAddress] string Email, string Phone
         );
-
-    // govno snizu
+    
     public record OrderRequest(
         Guid ClientId, ICollection<OrderItemRequest> Items
         );
@@ -38,7 +37,7 @@ namespace LightCRM.API.Contracts
         );
 
     public record UserRequest(
-        [EmailAddress] string Email, string Password
+        string Username, string Password
         );
 
     public record RefreshTokensRequest(

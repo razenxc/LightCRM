@@ -37,9 +37,9 @@ namespace LightCRM.Infrastructure.Services
             return (refreshToken.RefreshToken, string.Empty);
         }
 
-        public async Task<(string? token, string error)> GenerateAccessTokenAsync(string email)
+        public async Task<(string? token, string error)> GenerateAccessTokenAsync(string username)
         {
-            User? entity = await _ctx.Users.FirstOrDefaultAsync(x => x.Email == email);
+            User? entity = await _ctx.Users.FirstOrDefaultAsync(x => x.Username == username);
             if (entity == null)
             {
                 return (null, "User not found!");
@@ -49,7 +49,7 @@ namespace LightCRM.Infrastructure.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, entity.Id.ToString()),
                 new Claim(ClaimTypes.Role, entity.Role),
-                new Claim(ClaimTypes.Email, entity.Email)
+                new Claim(ClaimTypes.GivenName, entity.Username)
             };
 
             SymmetricSecurityKey key = new(Encoding.UTF8.GetBytes(_cfg["Jwt:SigningKey"]));
@@ -78,7 +78,7 @@ namespace LightCRM.Infrastructure.Services
             if (oldRefresh.ExpireAt < DateTime.UtcNow) return (null, "Refresh token is expired");
             if (user == null) return (null, "User does not exists.");
 
-            (string? newAccessToken, string error) = await GenerateAccessTokenAsync(user.Email);
+            (string? newAccessToken, string error) = await GenerateAccessTokenAsync(user.Username);
             if (error == null) return (null, "Something went wrong with access token creation");
             (string? newRefreshToken, error) = await GenerateRefreshTokenAsync(user.Id);
             if (error == null) return (null, "Something went wrong with refresh token creation");

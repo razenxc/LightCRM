@@ -17,7 +17,7 @@ services:
         - Jwt__Issuer=${JWT_ISSUER}
         - Jwt__Audience=${JWT_AUDIENCE}
         - Api__AdminPassword=${API_ADMINPASSWORD}
-        - Api__AdminEmail=${API_ADMINEMAIL}
+        - Api__AdminUsername=${API_ADMINUSERNAME}
     ports:
       - "1001:80"
 

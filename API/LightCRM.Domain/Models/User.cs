@@ -3,14 +3,14 @@
     public class User
     {
         public Guid Id { get; private set; }
-        public string Email { get; private set; }
+        public string Username { get; private set; }
         public string Role { get; private set; }
         public string PasswordHash { get; private set; }
 
-        public User(Guid id, string email, string role)
+        public User(Guid id, string username, string role)
         {
             Id = id;
-            Email = email;
+            Username = username;
             Role = role;
         }
 

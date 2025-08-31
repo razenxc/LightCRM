@@ -17,14 +17,14 @@ namespace LightCRM.Infrastructure.Services
             _tokenService = tokenService;
         }
 
-        public async Task<(User? user, string error)> Register(string email, string password)
+        public async Task<(User? user, string error)> Register(string username, string password)
         {
-            if (await _ctx.Users.FirstOrDefaultAsync(x => x.Email == email) != null)
+            if (await _ctx.Users.FirstOrDefaultAsync(x => x.Username == username) != null)
             {
                 return (null, "User is already exist!");
             }
 
-            User user = new User(Guid.NewGuid(), email, UserRoles.User);
+            User user = new User(Guid.NewGuid(), username, UserRoles.User);
 
             PasswordHasher<User> hasher = new PasswordHasher<User>();
 
@@ -36,9 +36,9 @@ namespace LightCRM.Infrastructure.Services
             return (user, string.Empty);
         }
 
-        public async Task<(JwtTokens? jwtTokens, string error)> Login(string email, string password)
+        public async Task<(JwtTokens? jwtTokens, string error)> Login(string username, string password)
         {
-            User? entity = await _ctx.Users.FirstOrDefaultAsync(x => x.Email == email);
+            User? entity = await _ctx.Users.FirstOrDefaultAsync(x => x.Username == username);
             if (entity == null)
             {
                 return (null, "User does not exist!");
@@ -51,7 +51,7 @@ namespace LightCRM.Infrastructure.Services
                 return (null, "Wrong password or email");
             }
 
-            (string? accessToken, string error) = await _tokenService.GenerateAccessTokenAsync(entity.Email);
+            (string? accessToken, string error) = await _tokenService.GenerateAccessTokenAsync(entity.Username);
             if (!string.IsNullOrEmpty(error)) 
             {
                 return (null, error);

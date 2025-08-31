@@ -28,12 +28,12 @@ namespace LightCRM.Infrastructure
             .UseNpgsql(_config.GetConnectionString("Default"))
             .UseSeeding((ctx, _) =>
             {
-                string adminEmail = _config["Api:AdminEmail"];
+                string adminUsername = _config["Api:AdminUsername"];
                 string adminPassword = _config["Api:AdminPassword"];
 
                 if (ctx.Set<User>().FirstOrDefault(x => x.Role == UserRoles.SuperAdmin) == null) // There should only be one user with the SUPERADMIN role.
                 {
-                    User defaultAdminAccount = new User(Guid.NewGuid(), adminEmail, UserRoles.SuperAdmin);
+                    User defaultAdminAccount = new User(Guid.NewGuid(), adminUsername, UserRoles.SuperAdmin);
                     defaultAdminAccount.SetPasswordHash(_passwordHasher.HashPassword(defaultAdminAccount, adminPassword));
                     ctx.Set<User>().Add(defaultAdminAccount);
                     ctx.SaveChanges();

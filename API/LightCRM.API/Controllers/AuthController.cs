@@ -23,7 +23,7 @@ namespace LightCRM.API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult> Register([FromBody] UserRequest req)
         {
-            (User? user, string error) = await _userService.Register(req.Email, req.Password);
+            (User? user, string error) = await _userService.Register(req.Username, req.Password);
             if (!string.IsNullOrEmpty(error))
             {
                 return BadRequest(error);
@@ -34,7 +34,7 @@ namespace LightCRM.API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<JwtTokens>> Login([FromBody] UserRequest req)
         {
-            (JwtTokens? tokens, string error) = await _userService.Login(req.Email, req.Password);
+            (JwtTokens? tokens, string error) = await _userService.Login(req.Username, req.Password);
             if (!string.IsNullOrEmpty(error))
             {
                 return BadRequest(error);
